@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Page</title>
-    <script>
-        // JavaScript function to show an alert
-        function showMessage() {
-            alert("Hello! This is your test JavaScript code running successfully.");
-        }
-    </script>
+    <title>Python Test with PyScript</title>
+    <!-- Include PyScript CSS and JavaScript -->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 <body>
-    <h1>Welcome to Your Test Page</h1>
-    <p>Click the button below to test JavaScript functionality:</p>
-    <button onclick="showMessage()">Click Me!</button>
+    <h1>Python Test Page</h1>
+    <p>Click the button to see Python in action:</p>
+
+    <!-- Button to trigger Python function -->
+    <button onclick="runPython()">Run Python</button>
+
+    <!-- Output area for Python results -->
+    <div id="output"></div>
+
+    <!-- PyScript block for Python code -->
+    <py-script id="python-code" style="display: none;" output="output">
+def test_function():
+    return "Hello from Python running in the browser!"
+
+result = test_function()
+result
+    </py-script>
+
+    <script>
+        // JavaScript to display Python results
+        function runPython() {
+            document.getElementById('python-code').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
